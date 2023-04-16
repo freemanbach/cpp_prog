@@ -1,3 +1,4 @@
+# Static Linking
 CC=gcc
 CXX=g++
 RM=rm -f
@@ -20,5 +21,4 @@ clean:
 	$(RM) $(TARGET).o
 	$(RM) $(LIBFILE).o
 
-#distclean: clean
-#	$(RMALL) $(TARGET).dSYM/
+distclean: clean
