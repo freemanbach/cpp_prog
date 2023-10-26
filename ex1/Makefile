@@ -16,5 +16,6 @@ $(TARGET): $(TARGET).cpp
 clean:
 	$(RM) $(TARGET)
 
-distclean: clean
+# this will clean first then dirs next
+clean_all: clean
 	$(RMALL) $(TARGET).dSYM/
