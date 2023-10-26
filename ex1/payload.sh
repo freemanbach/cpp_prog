@@ -7,7 +7,7 @@ PAYLOAD_LINE=$(awk '/^__PAYLOAD_BEGINS__/ { print NR + 1; exit 0; }' $0)
 # directory where a binary executable is to be saved
 WORK_DIR=/tmp
 # name of an embedded binary executable
-EXE_NAME=dummy_executable
+EXE_NAME=hello
 
 # extract the embedded binary executable
 tail -n +${PAYLOAD_LINE} $0 | base64 -d | cat > ${WORK_DIR}/${EXE_NAME}
