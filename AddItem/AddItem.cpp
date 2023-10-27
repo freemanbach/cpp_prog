@@ -7,11 +7,13 @@
 // *************************************************
 #include <iostream>
 #include "md5.h"
+#include "factorial.h"
 
 using namespace std;
 
 int main(){
     //std::cout << "Hello World!\n";
+    math::tests();
     hashing::md5::test();
     std::cin.get();
     return 0;
