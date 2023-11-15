@@ -20,6 +20,8 @@ int main(){
     string filename = "C:/Users/flo1/httpd.conf";
     string data = "";
     string csum = "";
+    int a = 90;
+    int* Pa = &a;
     std::ifstream afile; 
     afile.open(filename);
     auto start = chrono::high_resolution_clock::now();
@@ -33,7 +35,7 @@ int main(){
     auto stop = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
     cout << duration.count()<< endl;
-
+    cout << Pa << endl;
     // cin.get();
     return 0;
 }
