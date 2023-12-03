@@ -1,7 +1,7 @@
 # Simple Compile
 # # this is Pretty sweet makefile for single c or cpp file
-CC=cc
-CXX=gcc
+CC=gcc
+CXX=g++
 RM=rm -f
 RMALL=rm -fr
 CPPOBJ=-Wall -c
@@ -12,8 +12,8 @@ TARGET = test
 all: $(TARGET)
 
 $(TARGET): $(TARGET).c
-		$(CXX) $(CPPOBJ) $(TARGET).c
-		$(CXX) $(CPPFLAGS) -o $(TARGET) $(TARGET).c
+		$(CC) $(CPPOBJ) $(TARGET).c
+		$(CC) $(CPPFLAGS) -o $(TARGET) $(TARGET).c
 
 clean:
 	$(RM) $(TARGET)
