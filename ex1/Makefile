@@ -2,21 +2,25 @@
 # # this is Pretty sweet makefile for single c or cpp file
 CC=gcc
 CXX=g++
-RM=rm -f
-RMALL=rm -fr
-CPPOBJ=-Wall -c
-CPPFLAGS=-g -Wall
+RM=del /s /q
+RMALL=rmdir /s /q
+CFLAGS=-std=c17 -fPIC -g -Wall -O3
+CXXFLAGS=-g -Wall -Wextra -pedantic -O3
+CPPFLAGS=-std=c17 -fPIC -g -Wall -O3
+LDFLAGS=-shared
 
 TARGET = hello
 
 all: $(TARGET)
 
-$(TARGET): $(TARGET).cpp
-		$(CXX) $(CPPOBJ) $(TARGET).cpp
-		$(CXX) $(CPPFLAGS) -o $(TARGET) $(TARGET).cpp
+$(TARGET): $(TARGET).o
+	        $(CXX) $(CXXFLAGS) -o $(TARGET) $(TARGET).o
+
+$(TARGET).o: $(TARGET).cpp
+	        $(CXX) $(CXXFLAGS) -c $(TARGET).cpp
 
 clean:
-	$(RM) $(TARGET)
+	$(RM) $(TARGET).exe
 	$(RM) $(TARGET).o
 
 # this will clean first then dirs next
