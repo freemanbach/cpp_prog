@@ -16,7 +16,7 @@
 
 int main(int argc, char **argv) {
     double data = 0;
-    if ( argv[1] == '\0' ) {
+    if ( argv[1] == "\0" ) {
         std::cout<<"There is no parameter !"<<std::endl;
     } else {
         data = atof(argv[1]);
