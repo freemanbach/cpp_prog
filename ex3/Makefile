@@ -1,10 +1,12 @@
 # Static Linking
 CC=gcc
 CXX=g++
-RM=rm -f
-RMALL=rm -fr
-CFLAGS=-g -Wall
-CPPFLAGS=-g -Wall
+RM=del /s /q
+RMALL=rmdir /s /q
+CFLAGS=-std=c17 -fPIC -g Wall -O3
+CXXFLAGS=-fPIC -g -Wall -Wextra -pedantic -O3
+CPPFLAGS=-std=c17 -fPIC -g -Wall -O3
+LDFLAGS=-shared
 
 TARGET = main
 LIBFILE = lib
@@ -12,12 +14,12 @@ LIBFILE = lib
 all: $(TARGET)
 
 $(TARGET): $(TARGET).cpp
-		$(CXX) $(CPPFLAGS) -o $(TARGET).o -c $(TARGET).cpp
-		$(CXX) $(CPPFLAGS) -o $(LIBFILE).o -c $(LIBFILE).cpp
-		$(CXX) $(CPPFLAGS) $(TARGET).o $(LIBFILE).o -o main
+		$(CXX) $(CXXFLAGS) -o $(TARGET).o -c $(TARGET).cpp
+		$(CXX) $(CXXFLAGS) -o $(LIBFILE).o -c $(LIBFILE).cpp
+		$(CXX) $(CXXFLAGS) $(TARGET).o $(LIBFILE).o -o main
 
 clean:
-	$(RM) $(TARGET)
+	$(RM) $(TARGET).exe
 	$(RM) $(TARGET).o
 	$(RM) $(LIBFILE).o
 
